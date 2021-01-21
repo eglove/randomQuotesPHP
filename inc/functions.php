@@ -2,6 +2,9 @@
 
 class Functions
 {
+    /**
+     * Builds and prints out HTML to display random quote on the page.
+     */
     public static function printQuote()
     {
         $quote = self::getRandomQuote();
@@ -22,6 +25,10 @@ class Functions
         echo $quoteDisplay;
     }
 
+    /**
+     * Returns an associative array containing a random quote.
+     * @return string[]
+     */
     private static function getRandomQuote(): array
     {
         $quotes = [
@@ -55,8 +62,6 @@ class Functions
             ],
         ];
 
-        $randomQuoteIndex = rand(0, count($quotes) - 1);
-
-        return $quotes[$randomQuoteIndex];
+        return $quotes[array_rand($quotes)];
     }
 }
